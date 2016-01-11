@@ -10,11 +10,6 @@ myApp.controller('UsersController', function ($location, $cookies, UserFactory) 
         });
     }
 
-    this.logout = function () {
-        $cookies.remove('currentUser');
-        $location.path('/');
-    }
-
     this.promptLogin = function () {
         $location.path('/');
         _this.username = prompt('Please enter a name to play a game!');
@@ -24,7 +19,7 @@ myApp.controller('UsersController', function ($location, $cookies, UserFactory) 
             _this.login();
         }
     }
-    
+
     if (!$cookies.getObject('currentUser')) {
         _this.promptLogin();
     } else {

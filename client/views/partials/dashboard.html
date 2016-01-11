@@ -1,1 +1,29 @@
-<h1>dashboard<h1>
+<nav>
+    <a href="#/new_question">Add a question</a> 
+    <a href="" ng-click='DC.logout()' class='pull-right'>Logout</a>
+</nav>
+
+<form id='playGame'>
+    <button>Play!</button>
+    <h5>Click the button above to start the trivia game</h5>
+</form>
+
+<!-- Search by name, score, or percentage -->
+<label class='pull-right'>Search <input type='text'></label>
+
+<table class='table'>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Percentage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>DC.game._user.name</td>
+            <td>DC.game.score / 3</td>
+            <td>((DC.game.score/3) * 100) %</td>
+        </tr>
+    </tbody>
+</table>

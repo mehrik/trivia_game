@@ -1,5 +1,17 @@
-myApp.controller('QuestionsController', function ($location, $cookies) {
+myApp.controller('QuestionsController', function ($location, $cookies, QuestionFactory) {
     _this = this;
 
-    prompt('Please enter a name to play a game!');
+    this.cancel = function () {
+        _this.newQuestion = {};
+        $location.path('/dashboard');
+    }
+
+    this.submit = function () {
+        // create a new question
+        // redirect back to /dashboard
+        QuestionFactory.create(_this.newQuestion, function () {
+            alert('Question successfully created!!');
+            $location.path('/dashboard');
+        });
+    }
 });

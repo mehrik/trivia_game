@@ -5,9 +5,17 @@ module.exports = (function () {
     return {
         index: function (req, res) {
             res.json('questions.index');
-        },
+        },// end index
         create: function (req, res) {
-            res.json('questions.create')
-        }
+            var newQuestion = Question(req.body);
+            newQuestion.save(function (errors, question) {
+                if (errors) {
+                    res.json(errors);
+                } else {
+                    console.log('Succesfully created question', question);
+                    res.json(question);
+                }// end if
+            });// end save
+        }// end create
     }
 })();
