@@ -4,11 +4,26 @@ var Game = mongoose.model('Game');
 module.exports = (function () {
     return {
         index: function (req, res) {
-            console.log(req.body);
-            res.json('games.index');
+            Game
+            .find({})
+            .populate('_user')
+            .exec(function (error, games) {
+                if (error) {
+                    res.json(error);
+                } else {
+                    res.json(games);
+                }// end if
+            });// end find
         },
         create: function (req, res) {
-            res.json('games.create')
-        }
+            var newGame = new Game(req.body);
+            newGame.save(function (error, game) {
+                if (error) {
+                    res.json(error);
+                } else {
+                    res.json(game);
+                }// end if
+            });// end save
+        }// end create
     }
 })();

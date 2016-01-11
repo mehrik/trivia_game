@@ -4,14 +4,36 @@
 
 <form>
     <div class='form-group'>
-        Question 1)
+        <label>1: {{GC.questions[0].content}}</label>
+        <input type='radio' ng-model='GC.answer1' value='1'>
+        {{GC.questions[0].correctAnswer}}
+        <input type='radio' ng-model='GC.answer1' value='0'>
+        {{GC.questions[0].fakeAnswer1}}
+        <input type='radio' ng-model='GC.answer1' value='00'>
+        {{GC.questions[0].fakeAnswer2}}
     </div>
-    <div class='form-group'>
-        Question 2)
-    </div>
-    <div class='form-group'>
-        Question 3)
-    </div>
-    <button>Submit</button>
 </form>
+<form>
+    <div class='form-group'>
+        <label>2: {{GC.questions[1].content}}</label>
+        <input type='radio' ng-model='GC.answer2' value='1'>
+        {{GC.questions[1].correctAnswer}}
+        <input type='radio' ng-model='GC.answer2' value='0'>
+        {{GC.questions[1].fakeAnswer1}}
+        <input type='radio' ng-model='GC.answer2' value='00'>
+        {{GC.questions[1].fakeAnswer2}}
+    </div>
+</form>
+<form>
+    <div class='form-group'>
+        <label>3: {{GC.questions[2].content}}</label>
+        <input type='radio' ng-model='GC.answer3' value='1'>
+        {{GC.questions[2].correctAnswer}}
+        <input type='radio' ng-model='GC.answer3' value='0'>
+        {{GC.questions[2].fakeAnswer1}}
+        <input type='radio' ng-model='GC.answer3' value='00'>
+        {{GC.questions[2].fakeAnswer2}}
+    </div>
+</form>
+<button ng-click='GC.submit()'>Submit</button>
 <button ng-click='GC.cancel()'>Cancel</button>

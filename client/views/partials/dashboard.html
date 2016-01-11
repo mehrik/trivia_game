@@ -3,6 +3,10 @@
     <a href="" ng-click='DC.logout()' class='pull-right'>Logout</a>
 </nav>
 
+<div ng-model='DC.afterGame' ng-show='DC.afterGame'>
+    <h1>{{DC.currentUser.name}}, Your score is {{DC.lastGame.score}} / 3 ({{DC.lastGame.percentage}}%)</h1>
+</div>
+
 <form id='playGame'>
     <button ng-click='DC.gameTime()'>Play!</button>
     <h5>Click the button above to start the trivia game</h5>
@@ -20,10 +24,10 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>DC.game._user.name</td>
-            <td>DC.game.score / 3</td>
-            <td>((DC.game.score/3) * 100) %</td>
+        <tr ng-repeat="game in DC.games | orderBy:'-score'">
+            <td>{{game._user.name}}</td>
+            <td>{{game.score}} / 3</td>
+            <td>{{(game.score/3) * 100}}%</td>
         </tr>
     </tbody>
 </table>
