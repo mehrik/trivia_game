@@ -12,5 +12,15 @@ myApp.factory('QuestionFactory', function ($http) {
         });
     }
 
+    factory.index = function (callback) {
+        $http.get('/question').success(function (output) {
+            if (output.errors) {
+                console.log('ERRORS', output.errors);
+            } else {
+                callback(output);
+            }
+        });
+    }
+
     return factory;
 });

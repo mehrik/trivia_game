@@ -1,1 +1,17 @@
-<h1>Lets Play!</h1>
+<p>Hi {{GC.currentUser.name}}</p>
+<p>Choose an answer for each of the questions and submit the test once done!</p>
+<p>Good luck!</p>
+
+<form>
+    <div class='form-group'>
+        Question 1)
+    </div>
+    <div class='form-group'>
+        Question 2)
+    </div>
+    <div class='form-group'>
+        Question 3)
+    </div>
+    <button>Submit</button>
+</form>
+<button ng-click='GC.cancel()'>Cancel</button>

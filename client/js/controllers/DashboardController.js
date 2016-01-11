@@ -10,6 +10,10 @@ myApp.controller('DashboardController', function ($location, $cookies, UserFacto
         $cookies.remove('currentUser');
         $location.path('/');
     }
-    
+
+    this.gameTime = function () {
+        $location.path('/lets_play');
+    }
+
     console.log(_this.currentUser);
 });

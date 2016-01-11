@@ -4,7 +4,13 @@ var Question = mongoose.model('Question');
 module.exports = (function () {
     return {
         index: function (req, res) {
-            res.json('questions.index');
+            Question.findRandom({}, {}, {limit: 3}, function (errors, questions) {
+                if (errors) {
+                    res.json(errors);
+                } else {
+                    res.json(questions);
+                }// end if
+            })// end find
         },// end index
         create: function (req, res) {
             var newQuestion = Question(req.body);
