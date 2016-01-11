@@ -13,8 +13,7 @@
 </form>
 
 <!-- Search by name, score, or percentage -->
-<label class='pull-right'>Search <input type='text'></label>
-
+<label class='pull-right'>Search <input type='text' ng-model='searchText'></label>
 <table class='table'>
     <thead>
         <tr>
@@ -24,10 +23,10 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="game in DC.games | orderBy:'-score'">
+        <tr ng-repeat="game in DC.games | orderBy:'-score' | filter:searchText">
             <td>{{game._user.name}}</td>
             <td>{{game.score}} / 3</td>
-            <td>{{(game.score/3) * 100}}%</td>
+            <td>{{ (game.score/3) * 100 | number:1 }}%</td>
         </tr>
     </tbody>
 </table>

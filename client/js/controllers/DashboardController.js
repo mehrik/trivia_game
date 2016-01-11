@@ -28,7 +28,7 @@ myApp.controller('DashboardController', function ($location, $cookies, UserFacto
         GameFactory.lastGame(function (output) {
             if (output) {
                 _this.lastGame.score = output.score;
-                _this.lastGame.percentage = output.score/100;
+                _this.lastGame.percentage = Math.round(output.score/3 * 1000) / 10;
                 _this.afterGame = true;
             }
         });
